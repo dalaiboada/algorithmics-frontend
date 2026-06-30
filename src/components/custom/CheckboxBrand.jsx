@@ -1,6 +1,6 @@
-import * as React from "react";
-import { cn } from "@/lib/utils";
-import { CheckIcon } from "lucide-react";
+import * as React from 'react';
+import { cn } from '@/lib/utils';
+import { CheckIcon } from 'lucide-react';
 
 function CheckboxBrand({ id, label, className, ...props }) {
   const autoId = React.useId();
@@ -8,7 +8,7 @@ function CheckboxBrand({ id, label, className, ...props }) {
 
   return (
     <div
-      className={cn("flex items-center gap-2 cursor-pointer group", className)}
+      className={cn('flex items-center gap-2 cursor-pointer group', className)}
     >
       <div className="relative flex items-center justify-center w-5 h-5">
         <input
@@ -17,8 +17,10 @@ function CheckboxBrand({ id, label, className, ...props }) {
           className="peer appearance-none w-5 h-5 border-2 border-gray-300 rounded-md bg-white/60 checked:bg-[var(--color-brand-purple)] checked:border-[var(--color-brand-purple)] transition-all cursor-pointer"
           {...props}
         />
+
         <CheckIcon className="text-white absolute opacity-0 peer-checked:opacity-100 pointer-events-none size-3" />
       </div>
+
       {label && (
         <label
           htmlFor={checkboxId}
@@ -31,6 +33,6 @@ function CheckboxBrand({ id, label, className, ...props }) {
   );
 }
 
-CheckboxBrand.displayName = "CheckboxBrand";
+CheckboxBrand.displayName = 'CheckboxBrand';
 
 export { CheckboxBrand };
