@@ -121,7 +121,6 @@ export const AuthLayout = () => {
           <Outlet />
         </div>
 
-        {/* PANEL DERECHO */}
         <RightPanel />
       </div>
     </div>

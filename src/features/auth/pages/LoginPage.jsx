@@ -8,7 +8,7 @@ import {
 } from '@/components';
 
 import Logo from '/algorithmics-logo_largo.webp';
-//import GoogleIcon from '/icons/google-icon.svg';
+import GoogleIcon from '@/assets/icons/google-icon.svg';
 
 import { ArrowRight, Mail } from 'lucide-react';
 
@@ -18,6 +18,7 @@ export const LoginPage = () => {
       <div className="flex items-center mb-2">
         <img src={Logo} alt="Algorithmics Logo" className="w-auto h-8" />
       </div>
+
       <div className="mb-6">
         <Typography variant="h2" color="dark">
           ¡Hola de nuevo! 👋
@@ -32,6 +33,7 @@ export const LoginPage = () => {
           placeholder="tu@email.com"
           icon={<Mail className="size-4" />}
         />
+
         <PasswordField />
 
         <div className="flex items-center justify-between pt-1">
@@ -52,11 +54,7 @@ export const LoginPage = () => {
         </div>
 
         <Button variant="social" size="lg" className="w-full">
-          <img
-            src="https://www.svgrepo.com/show/475656/google-color.svg"
-            alt="Google"
-            className="w-5 h-5"
-          />
+          <img src={GoogleIcon} alt="Google" className="w-5 h-5" />
           Continúa con Google
         </Button>
       </form>
