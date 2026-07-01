@@ -8,6 +8,20 @@
 @import '@fontsource/poppins/700.css';
 @import '@fontsource/poppins/800.css';
 
+/* Remove browser autofill background color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  -webkit-text-fill-color: #374151 !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+input:-webkit-autofill::first-line {
+  font-family: 'Inter Variable', sans-serif;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
