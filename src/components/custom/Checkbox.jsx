@@ -14,7 +14,7 @@ function Checkbox({ id, label, className, ...props }) {
         <input
           id={checkboxId}
           type="checkbox"
-          className="peer appearance-none w-5 h-5 border-2 border-gray-300 rounded-md bg-white/60 checked:bg-[var(--color-brand-purple)] checked:border-[var(--color-brand-purple)] transition-all cursor-pointer"
+          className="peer appearance-none w-5 h-5 border-2 border-gray-300 rounded-md bg-white/60 checked:bg-(--color-brand-purple) checked:border-(--color-brand-purple) transition-all cursor-pointer"
           {...props}
         />
 
@@ -24,7 +24,7 @@ function Checkbox({ id, label, className, ...props }) {
       {label && (
         <label
           htmlFor={checkboxId}
-          className="text-xs font-medium text-gray-600 cursor-pointer group-hover:text-[var(--color-brand-dark)] transition-colors dark:text-gray-400 dark:group-hover:text-gray-300"
+          className="text-xs font-medium text-gray-600 cursor-pointer group-hover:text-(--color-brand-dark) transition-colors dark:text-gray-400 dark:group-hover:text-gray-300"
         >
           {label}
         </label>

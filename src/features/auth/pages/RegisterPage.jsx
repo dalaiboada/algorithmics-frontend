@@ -1,21 +1,12 @@
-import {
-  Typography,
-  Input,
-  PasswordField,
-  Checkbox,
-  Link,
-  Button,
-} from '@/components';
+import { Typography, Input, PasswordField, Link, Button } from '@/components';
 
 import { Rocket, Mail } from 'lucide-react';
 
 import Logo from '/algorithmics-logo_largo.webp';
 export const RegisterPage = () => {
   return (
-    <div className="p-6">
-      <div className="flex items-center mb-2">
-        <img src={Logo} alt="Algorithmics Logo" className="w-auto h-8" />
-      </div>
+    <div className="flex items-center mb-2 flex-col p-6">
+      <img src={Logo} alt="Algorithmics Logo" className="w-auto h-8" />
 
       <div className="mb-6">
         <Typography variant="h2" color="dark">

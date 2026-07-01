@@ -14,10 +14,8 @@ import { ArrowRight, Mail } from 'lucide-react';
 
 export const LoginPage = () => {
   return (
-    <>
-      <div className="flex items-center mb-2">
-        <img src={Logo} alt="Algorithmics Logo" className="w-auto h-8" />
-      </div>
+    <div className="flex flex-col items-center w-full gap-4">
+      <img src={Logo} alt="Algorithmics Logo" className="h-8 w-auto" />
 
       <div className="mb-6">
         <Typography variant="h2" color="dark">
@@ -32,6 +30,7 @@ export const LoginPage = () => {
           label="Correo electrónico"
           placeholder="tu@email.com"
           icon={<Mail className="size-4" />}
+          className={'w-85'}
         />
 
         <PasswordField />
@@ -62,6 +61,6 @@ export const LoginPage = () => {
       <Typography variant="bodySmall" color="gray" className="text-center pt-3">
         ¿No tienes cuenta? <Link to="/auth/register">Regístrate aquí</Link>
       </Typography>
-    </>
+    </div>
   );
 };
