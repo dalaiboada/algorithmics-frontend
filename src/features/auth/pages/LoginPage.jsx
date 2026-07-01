@@ -14,7 +14,7 @@ import { ArrowRight, Mail } from 'lucide-react';
 
 export const LoginPage = () => {
   return (
-    <div className="flex flex-col items-center w-full gap-4">
+    <div className="flex flex-col items-center w-full">
       <img src={Logo} alt="Algorithmics Logo" className="h-8 w-auto" />
 
       <div className="mb-6">

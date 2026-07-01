@@ -6,7 +6,7 @@ import Logo from '/algorithmics-logo_largo.webp';
 export const ResetPasswordPage = () => {
   return (
     <div className="flex items-center mb-2 flex-col">
-      <img src={Logo} alt="Algorithmics Logo" className="w-auto h-8" />
+      <img src={Logo} alt="Algorithmics Logo" className="w-auto h-8 mb-0.5" />
 
       <div className="flex items-center gap-1">
         <KeyRound className="text-brand-purple text-2xl" />
