@@ -14,7 +14,7 @@ function PasswordField({
   const inputId = id || autoId;
 
   return (
-    <div className={cn('max-w-[400px] w-full space-y-1.5', className)}>
+    <div className={cn('max-w-100 w-full space-y-1.5', className)}>
       <label
         htmlFor={inputId}
         className="block text-xs font-bold text-gray-700 ml-1 uppercase tracking-wide dark:text-muted-foreground"
@@ -22,7 +22,7 @@ function PasswordField({
         {label}
       </label>
 
-      <div className="relative flex items-center rounded-xl bg-white/60 border border-gray-200/80 focus-within:border-[var(--color-brand-purple)] focus-within:ring-0 outline-none transition-all shadow-sm backdrop-blur-sm dark:bg-input/30 dark:border-gray-700 dark:focus-within:border-[var(--color-brand-purple)]">
+      <div className="relative flex items-center rounded-xl bg-white/60 border border-gray-200/80 focus-within:border-(--color-brand-purple) focus-within:ring-0 outline-none transition-all shadow-sm backdrop-blur-sm dark:bg-input/30 dark:border-gray-700 dark:focus-within:border-(--color-brand-purple)">
         <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none z-10">
           <LockIcon className="size-4 text-gray-500" />
         </div>
@@ -41,7 +41,7 @@ function PasswordField({
           type="button"
           onClick={() => setShow(!show)}
           aria-label={show ? 'Ocultar contraseña' : 'Mostrar contraseña'}
-          className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-gray-400 hover:text-[var(--color-brand-purple)] transition-colors z-10"
+          className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-gray-400 hover:text-(--color-brand-purple) transition-colors z-10"
         >
           {show ? (
             <EyeOffIcon className="size-4" />
