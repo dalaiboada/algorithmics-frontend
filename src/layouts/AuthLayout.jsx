@@ -1,8 +1,11 @@
-import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Flag, Building, GraduationCap, MapPin } from 'lucide-react';
 import { AnimatedBackground } from '@/components/feedback/AnimatedBackground';
 import mapaAlgorithmics from '@/assets/img/mapa-algorithmics.webp';
+import useImage from '@/hooks/use-image';
+import { Spinner } from '@/components';
+
+const FALLBACK_IMAGE = 'https://chacao.alg.academy/_nuxt/img/4d36591.png';
 
 const StatCard = ({ icon: Icon, title, subtitle }) => (
   <div className="flex items-center gap-2.5 bg-white/70 px-4 py-2 rounded-2xl shadow-sm border border-white/50">
@@ -20,7 +23,10 @@ const StatCard = ({ icon: Icon, title, subtitle }) => (
 );
 
 const RightPanel = () => {
-  const [imgError, setImgError] = useState(false);
+  const { src, isLoading, hasError, handleLoad, handleError } = useImage(
+    mapaAlgorithmics,
+    FALLBACK_IMAGE
+  );
 
   return (
     <div
@@ -63,17 +69,16 @@ const RightPanel = () => {
 
       {/* Mapa */}
       <div className="relative w-full max-w-[670px] h-[300px] flex items-center justify-center overflow-hidden">
+        {isLoading && <Spinner size="lg" color="brand-purple" />}
+
         <img
-          src={
-            imgError
-              ? 'https://chacao.alg.academy/_nuxt/img/4d36591.png'
-              : mapaAlgorithmics
-          }
-          alt="Algorithmics World Map"
+          src={src}
+          alt="Algorithmics Mapa"
           className={`w-full h-full select-none transition-opacity duration-300 ${
-            imgError ? 'object-cover opacity-10 rounded-xl' : 'object-contain'
+            hasError ? 'object-cover opacity-10 rounded-xl' : 'object-contain'
           }`}
-          onError={() => setImgError(true)}
+          onLoad={handleLoad}
+          onError={handleError}
         />
       </div>
 
