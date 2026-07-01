@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Flag, Building, GraduationCap, MapPin } from 'lucide-react';
 import { AnimatedBackground } from '@/components/feedback/AnimatedBackground';
+import mapaAlgorithmics from '@/assets/img/mapa-algorithmics.webp';
 
 const StatCard = ({ icon: Icon, title, subtitle }) => (
   <div className="flex items-center gap-2.5 bg-white/70 px-4 py-2 rounded-2xl shadow-sm border border-white/50">
@@ -66,7 +67,7 @@ const RightPanel = () => {
           src={
             imgError
               ? 'https://chacao.alg.academy/_nuxt/img/4d36591.png'
-              : '/img/mapa-algorithmics.webp'
+              : mapaAlgorithmics
           }
           alt="Algorithmics World Map"
           className={`w-full h-full select-none transition-opacity duration-300 ${
