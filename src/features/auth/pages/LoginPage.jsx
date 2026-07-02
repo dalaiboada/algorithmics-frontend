@@ -16,25 +16,27 @@ import GoogleIcon from '@/assets/icons/google-icon.svg';
 
 import { ArrowRight, Mail } from 'lucide-react';
 
+import { useHealth } from '@/features/auth/hooks/useHealth';
+
 export const LoginPage = () => {
   const login = useAuthStore((state) => state.login);
+  const { data, loading, error, checkHealth } = useHealth();
 
   const [email, setEmail] = useState('');
   const [clave, setClave] = useState('');
-  const [error, setError] = useState(false);
 
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    setError(true);
+    try {
+      await checkHealth();
+    } catch (error) {
+      console.error(error);
+    }
 
     console.log(email, clave);
-
-    setTimeout(() => {
-      setError(false);
-    }, 3000);
 
     login({ name: 'Demo User', role: 'student', twoFactorEnabled: true });
     //navigate('/dashboard', { replace: true });
@@ -76,8 +78,12 @@ export const LoginPage = () => {
           Entrar a la plataforma <ArrowRight className="size-4" />
         </Button>
 
-        {error && (
-          <AlertCircleIconComponent Title={email} Description={clave} />
+        {!error && (
+          <AlertCircleIconComponent
+            Title={data?.message || 'Error'}
+            Description={data?.timestamp || 'Error'}
+            type={error ? 'error' : 'success'}
+          />
         )}
 
         <div className="flex items-center gap-3 py-1">

@@ -9,6 +9,14 @@ export const authService = {
     return response;
   },
 
+  async health() {
+    const response = await apiClient('/test', {
+      method: 'GET',
+    });
+    console.log(response);
+    return response;
+  },
+
   /* async register(email, password, name) {
     const response = await apiClient('/auth/register', {
       method: 'POST',
