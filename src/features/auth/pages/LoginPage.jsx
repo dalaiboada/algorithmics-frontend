@@ -5,9 +5,11 @@ import {
   Checkbox,
   Link,
   Button,
+  AlertCircleIconComponent,
 } from '@/components';
 import { useAuthStore } from '@/stores/auth-store';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 import Logo from '/algorithmics-logo_largo.webp';
 import GoogleIcon from '@/assets/icons/google-icon.svg';
@@ -16,13 +18,26 @@ import { ArrowRight, Mail } from 'lucide-react';
 
 export const LoginPage = () => {
   const login = useAuthStore((state) => state.login);
+
+  const [email, setEmail] = useState('');
+  const [clave, setClave] = useState('');
+  const [error, setError] = useState(false);
+
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
 
+    setError(true);
+
+    console.log(email, clave);
+
+    setTimeout(() => {
+      setError(false);
+    }, 3000);
+
     login({ name: 'Demo User', role: 'student', twoFactorEnabled: true });
-    navigate('/dashboard', { replace: true });
+    //navigate('/dashboard', { replace: true });
   };
 
   return (
@@ -43,9 +58,14 @@ export const LoginPage = () => {
           placeholder="tu@email.com"
           icon={<Mail className="size-4" />}
           className={'w-85'}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
 
-        <PasswordField />
+        <PasswordField
+          value={clave}
+          onChange={(e) => setClave(e.target.value)}
+        />
 
         <div className="flex items-center justify-between pt-1">
           <Checkbox id="remember" label="Recordarme" />
@@ -55,6 +75,10 @@ export const LoginPage = () => {
         <Button variant="default" size="lg" className="w-full" type="submit">
           Entrar a la plataforma <ArrowRight className="size-4" />
         </Button>
+
+        {error && (
+          <AlertCircleIconComponent Title={email} Description={clave} />
+        )}
 
         <div className="flex items-center gap-3 py-1">
           <div className="h-0.5 flex-1 bg-gray-300/50 rounded-full"></div>

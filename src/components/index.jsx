@@ -6,6 +6,7 @@ import { Link } from './custom/Link';
 import { Button } from './ui/button';
 import { Toaster } from './ui/sonner';
 import { Spinner } from './custom/Spinner';
+import { AlertCircleIconComponent } from './custom/AlertCircleIcon';
 
 export {
   Typography,
@@ -16,4 +17,5 @@ export {
   Button,
   Toaster,
   Spinner,
+  AlertCircleIconComponent,
 };
